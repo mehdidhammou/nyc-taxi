@@ -1,5 +1,0 @@
-paths:
-  db_path: ./data/diabetes.db
-  model_path: ./models/diabetes.model
-ml:
-  random_state: 42

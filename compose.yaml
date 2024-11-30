@@ -1,0 +1,21 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    ports:
+      - "80:8000"
+    volumes:
+      - ./artefacts:/app/artefacts
+
+  streamlit:
+    build:
+      context: .
+      dockerfile: Dockerfile.streamlit
+    ports:
+      - "8501:8501"
+    environment:
+      - FASTAPI_HOST=api
+      - FASTAPI_PORT=8000
+    depends_on:
+      - api

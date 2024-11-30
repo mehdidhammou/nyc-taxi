@@ -1,0 +1,13 @@
+FROM python:3.13-slim
+
+WORKDIR /app
+
+ENV PYTHONPATH="/app"
+
+RUN pip install streamlit python-dotenv
+
+COPY streamlit/app.py /app/
+
+EXPOSE 8501
+
+CMD ["streamlit", "run", "app.py"]
