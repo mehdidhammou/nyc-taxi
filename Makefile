@@ -1,5 +1,4 @@
 DOCKER_IMAGE = "fastapi-streamlit-ml"
-COMPOSE_FILE = "compose.yml"  # Adjust the name if necessary
 
 .PHONY: build run all clean train
 
@@ -8,11 +7,11 @@ all: build run
 
 # Build the docker image(s) using docker-compose
 build:
-	docker compose -f $(COMPOSE_FILE) build
+	docker compose build
 
 # Start the services defined in the docker-compose.yml file
 run:
-	docker compose -f $(COMPOSE_FILE) up
+	docker compose up
 
 # Clean up build artifacts and python cache files
 clean:
